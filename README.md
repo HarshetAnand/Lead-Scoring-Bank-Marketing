@@ -13,7 +13,7 @@ Most sales and marketing teams operate with too many leads and too little time. 
 On the UCI Bank Marketing dataset (45K records, 11.7 percent baseline conversion):
 
 | Metric | Value |
-|--------|-------|
+|---|---|
 | Test AUC | 0.90 |
 | 5-fold CV AUC | 0.89 +/- 0.01 |
 | Top tier (80-100) conversion rate | ~55 percent |
@@ -25,11 +25,15 @@ The top decile converts at roughly 5x the baseline rate, meaning a sales team co
 
 1. **Feature engineering** turns raw inputs into business-meaningful buckets (age brackets, balance tiers, contact intensity, prior outcome categories)
 2. **Logistic regression** is trained on the engineered features with class balancing
-3. **Probability calibration** maps model output to a 0-100 score
+3. **Score conversion** maps the predicted probability to a 0-100 score
 4. **Tier assignment** groups scores into Hot, Warm, Lukewarm, Cold, and Frozen tiers
 5. **Validation** uses AUC, decile lift, and per-tier conversion rates
 
 Logistic regression was chosen over more complex models because the coefficients are interpretable, which matters for explaining the system to non-technical stakeholders and shipping it to a CRM.
+
+## Limitations
+
+Call duration is one of the strongest features, but it is only known after a call ends. The model therefore scores leads after first contact, not before it. A pre-contact version would need to drop duration, and would have a lower AUC.
 
 ## Project structure
 
@@ -111,19 +115,21 @@ Lukewarm (40-59)    867          18.4       48.2
 ## Key features
 
 **Engineered features that drive lift**
+
 - Prior campaign outcome (whether a previous campaign was successful)
 - Contact intensity (combined campaign and previous contact counts)
 - Call duration tiers (short calls indicate disengagement)
 - Balance and age brackets aligned with customer segments
 
 **Production-ready scoring layer**
+
 - Score bucketing logic separated from the model for easy iteration
 - Tier definitions that map directly to sales workflows
 - Decile analysis for lift validation
 
 ## Relationship to my F Street work
 
-At F Street, I built a lead scoring system from scratch for hard money loan applications. That system used the same approach: logistic regression on engineered features, AUC validation, score bucketing into a 0-100 framework, and HubSpot deployment for sales prioritization. It achieved AUC 0.84 on 3,000+ loan applications and identified the top 20 percent of leads driving 30 percent of funded loan volume.
+At F Street, I built a lead scoring system from scratch for hard money loan applications. That system used the same approach: logistic regression on engineered features, AUC validation, score bucketing into a 0-100 framework, and HubSpot deployment for sales prioritization. It achieved AUC 0.84 on 3,000+ loan applications. A separate segmentation analysis identified the top 20 percent of borrowers driving roughly 30 percent of total loan volume.
 
 This project rebuilds the methodology on public data so the code and weights can be shared. The features differ (loan applications vs term deposit campaigns) but the modeling framework is the same.
 
