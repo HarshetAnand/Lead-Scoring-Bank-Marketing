@@ -29,7 +29,7 @@ def create_age_bucket(age):
 
 
 def create_balance_bucket(balance):
-    """Bucket account balance into deciles meaningful for outreach."""
+    """Bucket account balance into tiers meaningful for outreach."""
     try:
         balance = float(balance)
         if balance < 0:
