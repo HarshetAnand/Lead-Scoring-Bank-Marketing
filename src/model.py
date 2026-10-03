@@ -2,7 +2,7 @@
 Logistic regression model for lead scoring.
 
 Trains a logistic regression classifier on the UCI Bank Marketing dataset
-to predict term deposit subscription. Outputs AUC, calibrated probabilities,
+to predict term deposit subscription. Outputs AUC, predicted probabilities,
 and feature importances.
 """
 
