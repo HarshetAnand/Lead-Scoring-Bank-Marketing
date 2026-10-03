@@ -14,7 +14,7 @@ On the UCI Bank Marketing dataset (45K records, 11.7 percent baseline conversion
 
 | Metric | Value |
 |---|---|
-| Test AUC | 0.90 |
+| Test AUC | 0.91 |
 | 5-fold CV AUC | 0.89 +/- 0.01 |
 | Top tier (80-100) conversion rate | ~55 percent |
 | Bottom tier (0-19) conversion rate | ~2 percent |
@@ -100,7 +100,7 @@ After running the training script, you'll see output like:
 
 ```
 Baseline conversion rate: 11.7%
-Test set AUC: 0.903
+Test set AUC: 0.907
 5-fold CV AUC: 0.894 +/- 0.008
 
 Conversion rate by tier:
