@@ -15,11 +15,17 @@ On the UCI Bank Marketing dataset (45K records, 11.7 percent baseline conversion
 | Metric | Value |
 |---|---|
 | Test AUC | 0.91 |
-| 5-fold CV AUC | 0.89 +/- 0.01 |
-| Top tier (80-100) conversion rate | ~55 percent |
-| Bottom tier (0-19) conversion rate | ~2 percent |
+| Hot tier (80-100) conversion rate | 55.7 percent |
+| Warm tier (60-79) conversion rate | 27.9 percent |
+| Lukewarm tier (40-59) conversion rate | 14.7 percent |
+| Cold tier (20-39) conversion rate | 6.0 percent |
+| Frozen tier (0-19) conversion rate | 0.7 percent |
 
 The top decile converts at roughly 5x the baseline rate, meaning a sales team could capture the majority of conversions by focusing on the top 20-30 percent of leads.
+
+![Conversion rate by lead tier](outputs/success_by_tier.png)
+
+![ROC curve](outputs/roc_curve.png)
 
 ## How it works
 
@@ -94,24 +100,6 @@ streamlit run app/streamlit_app.py
 
 The Streamlit app lets you input lead attributes and get a real-time score with tier classification.
 
-## Sample output
-
-After running the training script, you'll see output like:
-
-```
-Baseline conversion rate: 11.7%
-Test set AUC: 0.907
-5-fold CV AUC: 0.894 +/- 0.008
-
-Conversion rate by tier:
-            tier  leads  success_rate  avg_score
-   Frozen (0-19)   5421           2.1       11.4
-    Cold (20-39)   1894           7.8       28.7
-Lukewarm (40-59)    867          18.4       48.2
-    Warm (60-79)    524          37.1       68.5
-    Hot (80-100)    337          54.6       88.1
-```
-
 ## Key features
 
 **Engineered features that drive lift**
@@ -140,13 +128,3 @@ This project rebuilds the methodology on public data so the code and weights can
 - pandas and numpy for data handling
 - matplotlib for visualization
 - Streamlit for the interactive demo
-
-## License
-
-MIT
-
-## Author
-
-**Harshet Anand**
-UW-Madison '25, BS Computer Science and Data Science
-[LinkedIn](https://linkedin.com/in/harshet-anand) | [GitHub](https://github.com/HarshetAnand)
