@@ -2,7 +2,7 @@
 
 A 0-100 lead scoring model that predicts conversion likelihood for direct marketing campaigns. Built with logistic regression on the UCI Bank Marketing dataset.
 
-This project demonstrates the methodology I used to build a production lead scoring system at F Street Capital, where the model achieved AUC 0.84 on 3,000+ loan applications and was deployed in HubSpot as a 0-100 scoring framework. The work here uses public data so the code and weights can be shared openly.
+This project demonstrates the methodology I used to build a production lead scoring system at F Street, where the model achieved AUC 0.84 on 3,000+ loan applications and was deployed in HubSpot as a 0-100 scoring framework. The work here uses public data so the code and weights can be shared openly.
 
 ## Why lead scoring matters
 
@@ -121,9 +121,9 @@ Lukewarm (40-59)    867          18.4       48.2
 - Tier definitions that map directly to sales workflows
 - Decile analysis for lift validation
 
-## Relationship to my F Street Capital work
+## Relationship to my F Street work
 
-At F Street Capital, I built a lead scoring system from scratch for hard money loan applications. That system used the same approach: logistic regression on engineered features, AUC validation, score bucketing into a 0-100 framework, and HubSpot deployment for sales prioritization. It achieved AUC 0.84 on 3,000+ loan applications and identified the top 20 percent of leads driving 30 percent of funded loan volume.
+At F Street, I built a lead scoring system from scratch for hard money loan applications. That system used the same approach: logistic regression on engineered features, AUC validation, score bucketing into a 0-100 framework, and HubSpot deployment for sales prioritization. It achieved AUC 0.84 on 3,000+ loan applications and identified the top 20 percent of leads driving 30 percent of funded loan volume.
 
 This project rebuilds the methodology on public data so the code and weights can be shared. The features differ (loan applications vs term deposit campaigns) but the modeling framework is the same.
 
