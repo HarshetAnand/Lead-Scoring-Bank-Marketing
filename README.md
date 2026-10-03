@@ -149,4 +149,4 @@ MIT
 
 **Harshet Anand**
 UW-Madison '25, BS Computer Science and Data Science
-[LinkedIn](https://linkedin.com/in/harshet-anand) | [GitHub](https://github.com/HarshetAnand) | [Rentle](https://rentleapp.com)
+[LinkedIn](https://linkedin.com/in/harshet-anand) | [GitHub](https://github.com/HarshetAnand)
